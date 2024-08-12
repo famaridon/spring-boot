@@ -31,3 +31,17 @@ To configure a given logger, `POST` a partial entity to the resource's URI, as t
 ----
 
 TIP: To "`reset`" the specific level of the logger (and use the default configuration instead), you can pass a value of `null` as the `configuredLevel`.
+
+== OpenTelemetry
+By default, Opentelemetry sdk logs is not configured. You can provide the location of the OpenTelemetry logs endpoint to configure it:
+
+[source,yaml]
+----
+management:
+  otlp:
+    logging:
+      endpoint: "https://otlp.example.com:4318/v1/logs"
+----
+
+NOTE: Opentelemetry Logback appender and Log4j appender are not part of Spring Boot you have to provide it and configure by youself. More details https://github.com/spring-projects/spring-boot/pull/40961[#40961]
+
